@@ -1,3 +1,5 @@
+'use strict';
+
 // Існує масив:
 const products = [
     { id: 1, name: "Молоко", price: 25, quantity: 14, category: "Молочні продукти" },
