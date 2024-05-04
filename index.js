@@ -25,19 +25,17 @@ const products = [
 ];
 
 // Використовувати методи масиву та функції стрілки.
-let productCategory;
-
 const PRODUCT_INITIAL_QUANTITY = 0;
 const PRODUCT_INITIAL_PRICE = 0;
+
+let productCategory;
 
 // 1) Розрахувати загальну кількість (quantity) продуктів з категорії "Овочі та фрукти"
 productCategory = "Овочі та фрукти";
 
-const productsVegetablesAndFruits = products.filter(
-  (product) => product.category === productCategory
-);
-const productsVegetablesAndFruitsTotalQuantity =
-  productsVegetablesAndFruits.reduce(
+const productsVegetablesAndFruitsTotalQuantity = products
+  .filter((product) => product.category === productCategory)
+  .reduce(
     (productsTotalQuantity, product) =>
       productsTotalQuantity + product.quantity,
     PRODUCT_INITIAL_QUANTITY
@@ -52,14 +50,13 @@ console.log(
 // 2) Розрахувати загальну вартість (quantity*price) продуктів з категорії "Молочні продукти"
 productCategory = "Молочні продукти";
 
-const productsDairy = products.filter(
-  (product) => product.category === productCategory
-);
-const productsDairyTotalPrice = productsDairy.reduce(
-  (productsTotalPrice, product) =>
-    productsTotalPrice + product.quantity * product.price,
-  PRODUCT_INITIAL_PRICE
-);
+const productsDairyTotalPrice = products
+  .filter((product) => product.category === productCategory)
+  .reduce(
+    (productsTotalPrice, product) =>
+      productsTotalPrice + product.quantity * product.price,
+    PRODUCT_INITIAL_PRICE
+  );
 
 console.log(
   '2) Розрахувати загальну вартість (quantity*price) продуктів з категорії "Молочні продукти": \n',
@@ -103,8 +100,10 @@ const productsMeatCategoryTotalPrice = productsMeatCategory.reduce(
   (productsTotalPrice, product) => productsTotalPrice + product.price,
   PRODUCT_INITIAL_PRICE
 );
+const productsMeatCategoryAvaragePrice = productsMeatCategoryTotalPrice / productsMeatCategory.length;
+
 console.log(
   "5) Розрахувати середню ціну продуктів з категорії \"М'ясо та м'ясні вироби\": \n",
-  productsMeatCategoryTotalPrice / productsMeatCategory.length,
+  productsMeatCategoryAvaragePrice,
   "\n"
 );
